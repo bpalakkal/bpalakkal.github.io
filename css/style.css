@@ -196,3 +196,7 @@ path {
 line {
   stroke: gray;
 }
+
+.y .tick line {
+    stroke: #ddd;
+  }
