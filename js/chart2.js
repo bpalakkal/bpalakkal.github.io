@@ -15,6 +15,7 @@ var svg1 = d3.select("body").select("#playerInfo")
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+// Prep the tooltip bits, initial display is hidden
 var tooltip = svg1.append("g")
   .attr("class", "tooltip")
   .style("display", "none");
@@ -30,7 +31,7 @@ tooltip.append("text")
   .attr("dy", "1.2em")
   .style("text-anchor", "middle")
   .attr("font-size", "12px")
-  .attr("font-weight", "bold");	
+  .attr("font-weight", "bold");
 	
 var teamdata = d3.json("data.json", 
        function(error, data){
@@ -145,9 +146,5 @@ legend.append("text")
       case 3: return "Steals Per Game";
     }
   });
-
-// Prep the tooltip bits, initial display is hidden
-
-    
-
+	});  
 } //end of function
