@@ -46,13 +46,6 @@ var y = d3.scale.linear()
 
 var colors = ["#a30622", "#c9441e", "#e87413", "#ffa600"];
 
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-    return "<strong>Points Per Game:</strong> <p><span style='color:red'>" + d.PPG + "</span> + <strong>Reb Per Game:</strong> <p><span style='color:red'>" + d.RPG + "</span>+<strong>Assists Per Game:</strong> <p><span style='color:red'>" + d.APG + "</span>+<strong>Steals Per Game:</strong> <p><span style='color:red'>" + d.SPG + "</span>";
-  })	
-	
 // Define and draw axes
 var yAxis = d3.svg.axis()
   .scale(y)
@@ -98,8 +91,8 @@ var rect = groups.selectAll("rect")
   .attr("y", function(d) { return y(d.y0 + d.y); })
   .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
   .attr("width", x.rangeBand())
-  .on('mouseover', tip.show)
-  .on('mouseout', tip.hide)  
+  .on("mouseover", function() { tooltip.style("display", null); })
+  .on("mouseout", function() { tooltip.style("display", "none"); })
   .on("mousemove", function(d) {
     var xPosition = d3.mouse(this)[0] - 15;
     var yPosition = d3.mouse(this)[1] - 25;
