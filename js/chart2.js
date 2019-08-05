@@ -14,6 +14,24 @@ var svg1 = d3.select("body").select("#playerInfo")
   .attr("height", height + 100 + margin.top + margin.bottom)
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var tooltip = svg1.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 30)
+  .attr("height", 20)
+  .attr("fill", "white")
+  .style("opacity", 0.5);
+
+tooltip.append("text")
+  .attr("x", 15)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .attr("font-size", "12px")
+  .attr("font-weight", "bold");	
+	
 var teamdata = d3.json("data.json", 
        function(error, data){
   	// change string (from CSV) into number format
@@ -40,10 +58,6 @@ var x = d3.scale.ordinal()
   .domain(dataset[0].map(function(d) { return d.x; }))
   .rangeRoundBands([10, 500], 0.02);
 
-var tooltip = svg1.append("g")
-  .attr("class", "tooltip")
-  .style("display", "none");
-	
 var y = d3.scale.linear()
   .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
   .range([400, 0]);
@@ -104,20 +118,6 @@ var rect = groups.selectAll("rect")
     tooltip.select("text").text(d.y);
   });
 
-tooltip.append("rect")
-  .attr("width", 30)
-  .attr("height", 20)
-  .attr("fill", "white")
-  .style("opacity", 0.5);
-
-tooltip.append("text")
-  .attr("x", 15)
-  .attr("dy", "1.2em")
-  .style("text-anchor", "middle")
-  .attr("font-size", "12px")
-  .attr("font-weight", "bold");
-	});  
-	
 // Draw legend
 var legend = svg1.selectAll(".legend")
   .data(colors)
