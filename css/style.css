@@ -147,56 +147,59 @@ fill: #999;
  }
   
 circle {
-  pointer-events: all;
-  cursor: points; 
+  pointer-events: all !important;
+  cursor: points !important; 
 }
 
 .d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
+  line-height: 1 !important;
+  font-weight: bold !important;
+  padding: 12px !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: #fff !important;
+  border-radius: 2px !important;
 }
 
 /* Creates a small triangle extender for the tooltip */
 .d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
+  box-sizing: border-box !important;
+  display: inline !important;
+  font-size: 10px !important;
+  width: 100% !important;
+  line-height: 1 !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  content: "\25BC" !important;
+  position: absolute !important;
+  text-align: center !important;
 }
 
 /* Style northward tooltips differently */
 .d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
+  margin: -1px 0 0 0 !important;
+  top: 100% !important;
+  left: 0 !important ;
 }
 
 .bar {
-  fill: #C9082A;
+  fill: #C9082A !important;
 }
 text {
-  font-size: 14px;
-  fill: #fff;
-  font-weight: bold;
+  font-size: 14px !important;
+  fill: #fff !important;
+  font-weight: bold !important;
 }
 
 path {
-  stroke: gray;
+  stroke: gray !important;
 }
 
 line {
-  stroke: gray;
+  stroke: gray !important;
 }
-
 .y .tick line {
-    stroke: #ddd;
+    stroke: #ddd !important;
+  }
+  svg {
+    font: 10px sans-serif !important;
+    shape-rendering: crispEdges !important;
   }
